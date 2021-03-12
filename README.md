@@ -16,5 +16,7 @@ One way around this is to use "\\s{2,}" as the sep instead of the default "\\s+"
   unwanted columns. So if your input string has five columns and you are removing two, you still need to supply a vector of
   names of length 5 for head_row.</ul>
 <b>ignore_rows</b>: Optional. A vector of integer row numbers to exclude from the final output data.frame.<br>
-<b>ignore_cols</b>: Optional. A vector of integer column numbers to exclude from the final output data.frame. See comment above about this argument's interaction with head_row.
+<b>ignore_cols</b>: Optional. A vector of integer column numbers to exclude from the final output data.frame. See comment above about this argument's interaction with head_row.<br>
+  <b>parse_types</b>: Optional boolean, default TRUE. Toggles type coercion. 
+  <ul>If true, uses regular expressions (in the convert_types_list) function to detect if a column is all integers, in which case it converts the column to the integer data type. If that fails, but R finds that all the entries are either string representations of numbers or strings of the form '' (empty string), 'NAN', 'na', or some case variant thereof, the function coerces the column to floats. If all those checks fail, the column is left as the character data type.</ul>
 </li>
